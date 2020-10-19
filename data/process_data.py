@@ -5,6 +5,12 @@ from sqlalchemy import create_engine
 
 
 def load_data(messages_filepath, categories_filepath):
+    """
+    Loads the datasets
+    :param messages_filepath: filepath where messages are saved
+    :param categories_filepath: filepath where category labels are saved
+    :return: merged pandas dataframe
+    """
     # load messages dataset
     messages = pd.read_csv(str(messages_filepath))
     # load categories dataset
@@ -15,6 +21,11 @@ def load_data(messages_filepath, categories_filepath):
 
 
 def clean_data(df):
+    """
+    Performs cleaning and transformations to the raw dataset
+    :param df: Merged dataframe from load_data() step
+    :return: Cleaned pandas dataframe
+    """
     # create a dataframe of the 36 individual category columns
     cat = df.categories.str.split(pat=";", expand=True)
     # select the first row of the categories dataframe
@@ -46,10 +57,14 @@ def clean_data(df):
 
 
 def save_data(df, database_filename):
-    engine = create_engine('sqlite:///DisasterResponse.db')
-    df.to_sql(database_filename, engine, index=False)
-
-
+    """
+    Saves the pandas dataframe to a SQLite database
+    :param df: Cleaned pandas dataframe
+    :param database_filename: Filename for the database
+    :return: None
+    """
+    engine = create_engine('sqlite:///' + database_filename)
+    df.to_sql('DisasterResponse', engine, index=False)
 
 def main():
     if len(sys.argv) == 4:
