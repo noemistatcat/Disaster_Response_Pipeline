@@ -1,4 +1,4 @@
-    # import libraries
+# import libraries
 import pandas as pd
 import numpy as np
 import sqlite3
@@ -68,7 +68,7 @@ def build_model():
     Builds the model using Pipeline and GridSearchCV
     :return: GridSearchCV object
     """
-    pipeline = Pipeline([('vect', CountVectorizer()),
+    pipeline = Pipeline([('vect', CountVectorizer(tokenizer=tokenize)),
                          ('tfidf', TfidfTransformer()),
                          ('clf', MultiOutputClassifier(RandomForestClassifier(n_jobs=-1))),
                          ])

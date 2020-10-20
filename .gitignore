@@ -1,0 +1,4 @@
+**/*.db
+**/*.pkl
+.idea
+.ipynb_checkpoints
