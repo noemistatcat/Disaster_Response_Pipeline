@@ -22,12 +22,14 @@ This project is in partial fulfillment of the Udacity Data Science Nanodegree Co
 
 <a name="dependencies"></a>
 ### Dependencies
-* Python 3.5+ (I used Python 3.8)
+* Python 3.5+
 * Data Wrangling: NumPy, Pandas, re 
 * Machine Learning: Scikit-Learn
-* Natural Language Process libraries: NLTK
+* Natural Language Process libraries: nltk
 * SQLite Database libraries: SQLalchemy
 * Web App and Data Visualization: Flask, Plotly 
+
+A more detailed requirements.txt file is uploaded.
 
 <a name="installing"></a>
 ### Installing
